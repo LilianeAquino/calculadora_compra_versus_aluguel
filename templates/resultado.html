@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+
+    <title>Resultado</title>
+</head>
+<body>
+    <h1>Resultado</h1>
+
+    <div id="resultado">
+        <p>Valor total do aluguel em 20 anos: <b>R$ {{ valor_total_aluguel }}</b></p>
+        <p>Valor do imóvel após 20 anos de valorização: <b>R$ {{ valor_imovel }}</b></p>
+        <p>Valor total investido em uma aplicação em 20 anos: <b>R$ {{ valor_total_investido }}</b></p>
+        <h2>Decisão: ao final de 20 anos, é mais vantajoso {{ decisao }}</h2>
+
+        <br><a id="link-voltar" href="/">Voltar para a página inicial</a>
+    </div>
+
+    
+</body>
+</html>
