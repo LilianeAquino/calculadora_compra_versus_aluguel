@@ -38,10 +38,12 @@ def calcular_valorizacao_imovel(valor_imovel: float, taxa_valorizacao: float, an
   return round(valor_imovel, 2)
 
 
-# a ideia seria: alugo e invisto o dinheiro ou compro o imóvel? Se meus gastos com aluguel for maior do que meus rendimenttos, devo comprar
+# a ideia seria: alugo e invisto o dinheiro ou compro o imóvel? Se meus gastos com aluguel for maior do que meus rendimentos, devo comprar
+# porque comprar vai sair mais barato do que alugar.
+# aluguel é gasto e investimento é rendimento
 def decisao_comprar_ou_alugar(valor_total_aluguel: float, valor_total_investido: float) -> str:
     if valor_total_aluguel > valor_total_investido:
-        return "Comprar "
+        return "Comprar"
     elif valor_total_aluguel < valor_total_investido:
         return "Alugar"
     else:
