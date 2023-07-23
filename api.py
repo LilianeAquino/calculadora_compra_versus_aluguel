@@ -34,12 +34,13 @@ def calculator():
 
         valor_total_aluguel = calcular_valor_total_aluguel(valor_mensal_aluguel, taxa_aumento_aluguel)
         valor_total_investido = calcular_valor_total_investimento(valor_compra_imovel, taxa_juros_aplicacao)
+        valor_total_investido_lucro = round(valor_total_investido - valor_compra_imovel, 2)
         valor_imovel = calcular_valorizacao_imovel(valor_compra_imovel, taxa_valorizacao_imovel)
 
-        decisao = decisao_comprar_ou_alugar(valor_total_aluguel, valor_total_investido)
+        decisao = decisao_comprar_ou_alugar(valor_total_aluguel, valor_total_investido, valor_imovel)
 
         return render_template('resultado.html', valor_total_aluguel=valor_total_aluguel, valor_imovel=valor_imovel,
-                               valor_total_investido=valor_total_investido, decisao=decisao, form=form)
+                               valor_total_investido=valor_total_investido_lucro, decisao=decisao, form=form)
     return render_template('formulario.html', form=form)
 
 
