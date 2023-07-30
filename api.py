@@ -11,19 +11,18 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(32)
 app.template_folder = 'templates'
 
-
-class InputForm(FlaskForm):
-    valor_mensal_aluguel = FloatField('Valor mensal do aluguel:', validators=[InputRequired()])
-    valor_compra_imovel = FloatField('Valor de compra do imóvel:', validators=[InputRequired()])
-    taxa_valorizacao_imovel = FloatField('Percentual anual de valorização do imóvel (em %):', validators=[InputRequired(), NumberRange(min=0)])
-    taxa_aumento_aluguel = FloatField('Taxa anual de aumento do aluguel (em %):', validators=[InputRequired(), NumberRange(min=0)])
-    taxa_juros_aplicacao = FloatField('Taxa de juros da aplicação (em %):', validators=[InputRequired(), NumberRange(min=0)])
-    submit = SubmitField('Calcular')
+class FormCalc(FlaskForm):
+    valor_mensal_aluguel = FloatField('Aluguel Mensal', validators=[InputRequired()])
+    valor_compra_imovel = FloatField('Valor Imóvel', validators=[InputRequired()])
+    taxa_valorizacao_imovel = FloatField('Valorização Imóvel', validators=[InputRequired()])
+    taxa_aumento_aluguel = FloatField('Atualização Aluguel', validators=[InputRequired()])
+    taxa_juros_aplicacao = FloatField('Juros Aplicação', validators=[InputRequired()])
+    botao_calcular = SubmitField('Calcular')
 
 
 @app.route('/', methods=['GET', 'POST'])
 def calculator():
-    form = InputForm()
+    form = FormCalc()
 
     if form.validate_on_submit():
         valor_mensal_aluguel = form.valor_mensal_aluguel.data
@@ -41,7 +40,7 @@ def calculator():
 
         return render_template('resultado.html', valor_total_aluguel=valor_total_aluguel, valor_imovel=valor_imovel,
                                valor_total_investido=valor_total_investido_lucro, decisao=decisao, form=form)
-    return render_template('formulario.html', form=form)
+    return render_template('calcimobiliaria.html', form=form)
 
 
 if __name__ == "__main__":

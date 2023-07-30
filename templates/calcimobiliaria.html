@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>Comprar ou Alugar?</h1>
+        <hr>
+      <div class="row">
+        <div class="col">
+            <img src="{{url_for('static', filename='imagem.jpg', class="img-fluid")}}">
+        </div>
+        <div class="col">
+            <form method="post" action="" class="border p-4 m-2">
+                {{ form.csrf_token }}
+                <legeng> </legeng>
+                <fieldset>
+                    <div class="form-group">
+                        {{ form.valor_mensal_aluguel.label(class='form-control-label')}}
+                        {{ form.valor_mensal_aluguel(class='form-control')}}
+                    </div>
+                    <div class="form-group">
+                        {{ form.valor_compra_imovel.label(class='form-control-label')}}
+                        {{ form.valor_compra_imovel(class='form-control')}}
+                    </div>
+                    <div class="form-group">
+                        {{ form.taxa_valorizacao_imovel.label(class='form-control-label')}}
+                        {{ form.taxa_valorizacao_imovel(class='form-control')}}
+                    </div>
+                    <div class="form-group">
+                        {{ form.taxa_aumento_aluguel.label(class='form-control-label')}}
+                        {{ form.taxa_aumento_aluguel(class='form-control')}}
+                    </div>
+                    <div class="form-group">
+                        {{ form.taxa_juros_aplicacao.label(class='form-control-label')}}
+                        {{ form.taxa_juros_aplicacao(class='form-control')}}
+                    </div>
+                </fieldset>
+                {{ form.botao_calcular(class='btn btn-primary mt-3') }}
+            </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}

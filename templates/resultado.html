@@ -1,24 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/styles.css">
-
-    <title>Resultado</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block body %}
     <h1>Resultado</h1>
-
     <div id="resultado">
         <p>Valor total do aluguel pago em 20 anos: <b>R$ {{ valor_total_aluguel }}</b></p>
         <p>O imóvel após 20 anos valorizou em: <b>R$ {{ valor_imovel }}</b></p>
         <p>O valor total investido após 20 anos rendeu: <b>R$ {{ valor_total_investido }}</b></p>
         <h2>Decisão: de acordo com a projeção, é mais vantajoso {{ decisao }}</h2>
-
         <br><a id="link-voltar" href="/">Voltar para a página inicial</a>
-    </div>
-
-    
-</body>
-</html>
+    </div> 
+{% endblock %}
